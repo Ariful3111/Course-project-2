@@ -1,74 +1,88 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:course_project_2/Theme/App_Theme.dart';
 import 'package:get/get.dart';
+import 'package:course_project_2/Walkthrough-Screen/Slide_controller.dart';
+import 'Walkthrough_controller.dart';
+import 'package:course_project_2/Walkthrough-Screen/Slide_dot.dart';
 
-class Walkthrough_1 extends StatelessWidget {
-  const Walkthrough_1({Key? key}) : super(key: key);
+class Walkthrough_1 extends StatefulWidget {
+  @override
+  State<Walkthrough_1> createState() => _Walkthrough_1State();
+}
+
+class _Walkthrough_1State extends State<Walkthrough_1> {
+  final PageController _pageController = PageController(initialPage: 0);
+  int _currentpage = 0;
+
+  @override
+  void dispose() {
+    super.dispose();
+    _pageController.dispose();
+  }
+
+  _onpagechange(int index) {
+    setState(() {
+      _currentpage = index;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    Timer.periodic(Duration(seconds: 5), (Timer timer) {
+      if (_currentpage < 2) {
+        _currentpage++;
+      } else {
+        _currentpage = 0;
+      }
+      _pageController.animateToPage(_currentpage,
+          duration: Duration(seconds: 3), curve: Curves.easeIn);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-      body:Column(
-        children: [
-          SizedBox(
-            height: Get.height*0.08,
-          ),
+      body: Container(
+        color: Colors.white,
+        child: Column(
+          children: [
 
-          Image.asset(('assets/Walkthrough/Frame.png'),
-          height: Get.height*0.4,
-          ),
-
-          SizedBox(
-            height: Get.height*0.1,
-          ),
-
-          Expanded(
-            child: Container(
-              decoration: BoxDecoration(
-                  color: AppTheme().colorScheme.primary,
-                borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30))
-              ),
-              width: Get.width*1,
-
-              child: Column(
+            Expanded(
+              child: Stack(
+                alignment: Alignment.center,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 30),
-                    child: Text(('Send Money Anywhere'),
-                    style: Theme.of(context).textTheme.headline1,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 30,left: 20,right: 10),
-                    child: Text(('With our unique technology, you can get money anywhere in the world.'),
-                      style: Theme.of(context).textTheme.headline2,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 60),
-                    child: TextButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStatePropertyAll<Color?>(Colors.black),
-                        minimumSize: MaterialStatePropertyAll<Size?>(Size(Get.width*0.9, Get.height*0.09)),
-                      ),
-                      onPressed: (){},
-                        child: Text(("LOGIN"),
-                        style: Theme.of(context).textTheme.headline1,
+                  PageView.builder(
+                      scrollDirection: Axis.horizontal,
+                      controller: _pageController,
+                      onPageChanged: _onpagechange,
+                      itemCount: Slide_List.length,
+                      itemBuilder: (context, i) => Walkthrough_controller(i)),
+                  Stack(
+                    alignment: AlignmentDirectional.topStart,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(bottom: 35),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            for (int i = 0; i < Slide_List.length; i++)
+                              if (i == _currentpage)
+                                SlideDot(true)
+                              else
+                                SlideDot(false)
+                          ],
                         ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 30),
-                    child: Text(('TRY SUTRAQ'),
-                      style: Theme.of(context).textTheme.headline1,
-                    ),
-                  ),
+                      ),
+                    ],
+                  )
                 ],
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

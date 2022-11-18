@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:course_project_2/Splash_screen.dart';
 import 'package:get/get.dart';
 import 'package:course_project_2/Route/route.dart';
-
+import 'package:url_launcher/url_launcher.dart';
 void main() {
   runApp(const MyApp());
 }

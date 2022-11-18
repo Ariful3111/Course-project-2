@@ -47,6 +47,34 @@ ThemeData AppTheme() {
         fontStyle: FontStyle.normal,
         fontSize: 17,
       ),
+      headline3: TextStyle(
+        fontFamily: 'Gelion',
+        color: Colors.black,
+        fontStyle: FontStyle.normal,
+        fontWeight: FontWeight.w600,
+        fontSize: 27,
+      ),
+      headline4: TextStyle(
+        fontFamily: 'Circular Std',
+        color: Colors.black,
+        fontWeight: FontWeight.w700,
+        fontStyle: FontStyle.normal,
+        fontSize: 17,
+      ),
+      headline5: TextStyle(
+        fontFamily: 'Circular Std',
+        color: Colors.grey,
+        fontWeight: FontWeight.w400,
+        fontStyle: FontStyle.normal,
+        fontSize: 16,
+      ),
+      headline6: TextStyle(
+        fontFamily: 'Circular Std',
+        color: Colors.black,
+        fontWeight: FontWeight.w400,
+        fontStyle: FontStyle.normal,
+        fontSize: 16,
+      ),
 
       bodyText1: TextStyle(
         color: Colors.white,
@@ -54,7 +82,7 @@ ThemeData AppTheme() {
         fontSize: 30,
       ),
       bodyText2: TextStyle(
-        color: Colors.white,
+        color: Colors.black,
         fontWeight: FontWeight.normal,
         fontSize: 30,
       ),

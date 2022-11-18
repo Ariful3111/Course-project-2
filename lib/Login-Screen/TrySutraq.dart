@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Dashboard extends StatelessWidget {
+class TrySutraq extends StatelessWidget {
 
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ,
+      body: Column(
+      ),
     );
   }
 }

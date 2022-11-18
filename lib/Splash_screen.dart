@@ -17,10 +17,6 @@ class _Splash_screenState extends State<Splash_screen> {
   _routing() async{
     await Future.delayed(Duration(seconds: 3),);
     Navigator.pushReplacementNamed(context, '/Walkthrough-1');
-    await Future.delayed(Duration(seconds: 3),);
-    Navigator.pushReplacementNamed(context, '/Walkthrough-2');
-    await Future.delayed(Duration(seconds: 3),);
-    Navigator.pushReplacementNamed(context, '/Walkthrough-3');
   }
 
   @override
