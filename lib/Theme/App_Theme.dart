@@ -14,6 +14,7 @@ ThemeData AppTheme() {
         ),
       ),
     ),
+
     buttonTheme: ButtonThemeData(
       buttonColor: Color(0xFF61BA46),
     ),
@@ -70,19 +71,21 @@ ThemeData AppTheme() {
       ),
       headline6: TextStyle(
         fontFamily: 'Circular Std',
-        color: Colors.black,
+        color: Color(0xFF0A004A),
         fontWeight: FontWeight.w400,
         fontStyle: FontStyle.normal,
         fontSize: 16,
       ),
 
       bodyText1: TextStyle(
-        color: Colors.white,
-        fontWeight: FontWeight.normal,
-        fontSize: 30,
+        fontFamily: 'Gelion',
+        color: Color(0xFF61BA46),
+        fontStyle: FontStyle.normal,
+        fontWeight: FontWeight.w600,
+        fontSize: 27,
       ),
       bodyText2: TextStyle(
-        color: Colors.black,
+        color: Color(0xFF61BA46),
         fontWeight: FontWeight.normal,
         fontSize: 30,
       ),

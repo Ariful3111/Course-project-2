@@ -4,8 +4,7 @@
    <application
         android:label="course_project_2"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher"
-       android:usesCleartextTraffice="true">
+        android:icon="@mipmap/ic_launcher">
 
         <activity
             android:name=".MainActivity"
